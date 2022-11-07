@@ -1,0 +1,32 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+<div class="gs-neumorphic-main-card-outer-container">
+    <div class="gs-neumorphic-main-card-container">
+        <div class="gs-neumorphic-main-card">
+            <div class="gs-neumorphic-signup gs-form-open">
+                <div class="gs-neumorphic-signup-login-header gs-open" data-button="gs-neumorphic-signup">Signup</div>
+                <div class="gs-neumorphic-form-container">
+                    <div>
+                        {% for message in messages %}
+                            <p style="color:red">{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="text" name="firstName" class="gs-neumorphic-input" placeholder="First Name" value={{firstName}}>
+                        <input type="text" name="lastName" class="gs-neumorphic-input" placeholder="Last Name" value={{lastName}}>
+                        <input type="text" name="username" class="gs-neumorphic-input" placeholder="Username" value={{username}}>
+                        <input type="text" name="email" class="gs-neumorphic-input" placeholder="Email" value={{email}}>
+                        <input type="password" name="password" class="gs-neumorphic-input" placeholder="Password">
+                        <input type="password" name="confirmPassword" class="gs-neumorphic-input" placeholder="Confirm Password">
+                        <button class="gs-neumorphic-button">Signup</button>
+                    </form>
+                </div>
+                <p style="color:#6D78FA">Already have an account?</p>
+                <br>
+                <a class="login-button" href="/login">Login</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/sidenavbar.css' %}"/>    
+<div class="sidebar-content">
+  <h1 style="padding: 15% 0 10% 15%;">InterFace</h1>
+    <li class="list">
+      <a href="/" class="nav-link">
+        <svg aria-label="Home" class="_ab6-" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M22 23h-6.001a1 1 0 0 1-1-1v-5.455a2.997 2.997 0 1 0-5.993 0V22a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V11.543a1.002 1.002 0 0 1 .31-.724l10-9.543a1.001 1.001 0 0 1 1.38 0l10 9.543a1.002 1.002 0 0 1 .31.724V22a1 1 0 0 1-1 1Z"></path></svg>
+        <span class="link">Home</span>
+      </a>
+    </li>
+    <li class="list">
+      <a href="#" class="nav-link">
+        <svg aria-label="Search" class="_ab6-" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M19 10.5A8.5 8.5 0 1 1 10.5 2a8.5 8.5 0 0 1 8.5 8.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="16.511" x2="22" y1="16.511" y2="22"></line></svg>
+        <span class="link">Search</span>
+      </a>
+    </li>
+    <li class="list">
+      <a href="#" class="nav-link">
+        <svg aria-label="Direct" class="_ab6-" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon></svg>
+        <span class="link">Messages</span>
+      </a>
+    </li>
+    <li class="list">
+      <a href="#" class="nav-link">
+        <svg aria-label="New post" class="_ab6-" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M2 12v3.45c0 2.849.698 4.005 1.606 4.944.94.909 2.098 1.608 4.946 1.608h6.896c2.848 0 4.006-.7 4.946-1.608C21.302 19.455 22 18.3 22 15.45V8.552c0-2.849-.698-4.006-1.606-4.945C19.454 2.7 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.547 2 5.703 2 8.552Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="6.545" x2="17.455" y1="12.001" y2="12.001"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="12.003" x2="12.003" y1="6.545" y2="17.455"></line></svg>
+        <span class="link">Create</span>
+      </a>
+    </li>
+    <li class="list">
+      <a href="/saved" class="nav-link">
+        <svg aria-label="Save" color="#262626" fill="#262626" height="24" viewBox="0 0 24 24" width="24"><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polygon></svg>
+        <span class="link">Saved</span>
+      </a>
+    </li>
+
+    {% if user.is_authenticated %}
+      <div class="bottom-content">
+        <li class="list">
+          <a href="/profile/{{user}}" class="nav-link">
+            <img class="profile-image" src="{{profile.profile_img.url}}" alt="{{profile_model.id_user}}">
+            <span class="link">Profile</span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="/logout" class="nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <span class="link">Logout</span>
+          </a>
+        </li>
+        </div>
+    {% else %}
+    <div class="bottom-content">
+      <li class="list">
+        <a href="/login" class="nav-link">
+          <span class="link">Login</span>
+        </a>
+      </li>
+      </div>
+    {% endif %}
+</div>

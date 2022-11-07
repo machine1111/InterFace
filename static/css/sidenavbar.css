@@ -1,0 +1,43 @@
+.sidebar-content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    padding: 20px 25px;
+    border-right: #d7d7d7 solid 1px;
+}
+.list {
+    list-style: none;
+}
+.nav-link {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    padding: 20px 12px;
+    border-radius: 40px;
+    text-decoration: none;
+}
+
+.nav-link {
+    transition: background-color 0.25s ease;
+}
+.nav-link:hover {
+    background-color: #e3e2e2;
+}
+
+.icon {
+    margin-right: 14px;
+    font-size: 20px;
+    color: black;
+}
+.link {
+    font-size: 20px;
+    color: black;
+    font-weight: 400;
+    padding-left: 5%;
+
+}
+.profile-image {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}

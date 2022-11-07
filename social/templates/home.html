@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterFace</title>
+  </head>
+  <body>
+    
+    <div class="col1">
+        {% include 'sidebar.html' %}
+      </div>
+      <div class="col2">
+          {% block body %}
+          {% endblock body %}
+      </div>
+</body>
+</html>
+
+
+
+<style>
+html, body, .col1, .col2 {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.col1 {
+  width: 19%;
+}
+
+.col2 {
+  width: 81%;
+}
+.col1 {
+  background-color: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.col2 {
+  overflow: auto;
+  margin-left:20%;
+}
+
+</style>
+
+

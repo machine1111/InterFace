@@ -1,0 +1,131 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'css/user_profile.css' %}"/> 
+<header>
+	<div class="container">
+		<div class="profile">
+			<div class="user-profile-image">
+				<img src="{{profile_img.url}}" alt="">
+			</div>
+			<div class="profile-user-settings">
+				<h1 class="profile-user-name">{{username}}</h1>
+				{% if owner %}
+					<a class="btn profile-edit-btn" href="/account">Edit Profile</a>
+					<button class="btn profile-edit-btn" id="btnOpenForm" onclick="openForm()">New Post</button>
+					<div class="form-popup-bg" id="form">
+						<div class="form-container">
+							<button id="btnCloseForm" class="close-button" onclick="closeForm()">X</button>
+							<form method="POST" action="/upload" enctype="multipart/form-data">
+								{% csrf_token %}
+								<div class="main-upload-container">
+									<div class="upload-header">
+										<div></div>
+										<h1>Create New Post</h1>
+										<button>Submit</button>
+									</div>
+									<div class="upload-container">
+										<div class="can">
+											<canvas id="canvas"></canvas>
+											<input type='file' name="post_img" id="uploader" accept=".png, .jpg, .jpeg" />
+											<label for="uploader" class="pencil"></label>
+										</div>
+										<div class="caption">
+											<div class="uploader-user-profile">
+												<img  src="{{ profile.profile_img.url }}" alt="">
+												<h2 class="sidebar-title card-title">{{user.username}}</h2>
+											</div>
+											<textarea class="caption-input" type="text" name="caption" placeholder="Write a caption..."></textarea>
+											{% for message in messages %}
+												<p style="color:red">{{ message }}</p>
+											{% endfor %}
+										</div> 
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				{% else %}
+				<div style="display: inline-block;">
+					<form method="POST" action="/follow">
+						{% csrf_token %}
+						<input type="hidden" name="username_to_follow" value="{{username}}"></input>
+						<button class="btn profile-edit-btn" type="submit">
+							{% if is_followed %}
+								Unfollow
+							{% else %}
+								Follow
+							{% endif %}
+						</button>
+					</form>
+				</div>
+				{% endif %}
+			</div>
+			<div class="profile-stats">
+				<ul>
+					<li><span class="profile-stat-count">{{post_count}}</span> Posts</li>
+					<li><span class="profile-stat-count">{{follower_count}}</span> Followers</li>
+					<li><span class="profile-stat-count">{{following_count}}</span> Following</li>
+				</ul>
+			</div>
+			<div class="profile-bio">
+				<p>{{bio}}</p>
+			</div>
+		</div>
+		<hr>
+	</div>
+</header>
+<main>
+	{% if post_count %}
+		<div class="container">
+			<div class="gallery">
+				{% for post in posts %}
+				<a href="/post/{{post.id}}">
+					<div class="gallery-item" tabindex="0">
+						<img src="{{post.post_img.url}}" class="gallery-image" alt="">
+						<div class="gallery-item-info">
+							<ul>
+								<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span>&#129293; {{post.likes}}</li>
+								<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span>&#128172; {{post.comments}}</li>
+							</ul>
+						</div>
+					</div>
+					</a>
+				{% endfor %}
+			</div>
+		</div>
+	{% else %}
+		<div class="no-posts">
+			<div class="camera-emoji">
+				📷
+			</div>
+			<div class="no-posts-title">
+				<p>No Posts Yet</p>
+			</div>
+		</div>
+	{% endif %}
+</main>
+
+<script>
+	function openForm(){
+		document.getElementById('form').classList.add('is-visible');
+	}
+	function closeForm(){
+		document.getElementById('form').classList.remove('is-visible');
+	}
+	const canvas = document.getElementById('canvas');
+	const ctx = canvas.getContext('2d');
+	const uploader = document.getElementById('uploader');
+	uploader.addEventListener('change', (e) =>{
+		const myFile = uploader.files[0];
+		console.log(myFile);
+		const img = new Image();
+		img.src = URL.createObjectURL(myFile);
+		img.onload = function(){
+			ctx.drawImage(img,0,0, canvas.width, canvas.height);
+		}
+	})
+</script>
+
+{% endblock body %}

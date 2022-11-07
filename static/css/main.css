@@ -1,0 +1,263 @@
+:root {
+    --lightGrey-gs-neumorphic-login-signup: #c8d0e7;
+    --lightGrey2-gs-neumorphic-login-signup: #e4ebf5;
+    --header-colors-gs-neumorphic-login-signup: #6D78FA;
+    --header-font-size-gs-neumorphic-login-signup: 25px;
+    --header-scale-open-gs-neumorphic-login-signup: 1.5;
+    --card-open-close-tansition-time-gs-neumorphic-login-signup: 1s;
+    --form-input-border-radius-gs-neumorphic-login-signup: 5px;
+    --form-input-padding-gs-neumorphic-login-signup: 10px;
+    --form-input-font-size-gs-neumorphic-login-signup: 15px;
+    --form-input-font-color--gs-neumorphic-login-signup: #5f6677;
+    --form-input-margin-gs-neumorphic-login-signup: 15px;
+    --form-input-max-width-gs-neumorphic-login-signup: 300px;
+}
+
+* {
+  margin: 0;
+}
+
+.gs-neumorphic-main-card-outer-container{
+  background-color: #e4ebf5;
+}
+
+.gs-neumorphic-main-card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0.8rem 0.8rem 1.4rem var(--lightGrey-gs-neumorphic-login-signup), -0.2rem -0.2rem 1.8rem #ffffff;
+    border-radius: 1rem;
+    font-weight: bold;
+    background-color: var(--lightGrey2-gs-neumorphic-login-signup);
+}
+
+@media only screen and (min-width: 320px)  { .gs-neumorphic-main-card-container .gs-neumorphic-main-card{ width: 90%;} }
+@media only screen and (min-width: 540px)  { .gs-neumorphic-main-card-container .gs-neumorphic-main-card{ width: 70%;} }
+@media only screen and (min-width: 800px)  { .gs-neumorphic-main-card-container .gs-neumorphic-main-card{ width: 60%;} }
+@media only screen and (min-width: 900px) { .gs-neumorphic-main-card-container .gs-neumorphic-main-card{ width: 30%;} }
+@media only screen and (min-width: 1900px) { .gs-neumorphic-main-card-container .gs-neumorphic-main-card{ width: 30%;} }
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-neumorphic-signup{
+    /* height: 85%; */
+    width: 100%;
+    text-align: center;
+    background-color: var(--lightGrey2-gs-neumorphic-login-signup);
+    margin-top:5%;
+    margin-bottom:10%;
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-neumorphic-login{
+    width: 100%;
+    text-align: center;
+    transition: var(--card-open-close-tansition-time-gs-neumorphic-login-signup) ease-in-out;
+    border-radius: 60% / 10%;
+    box-shadow: 0rem 0rem 1rem var(--lightGrey-gs-neumorphic-login-signup), 0rem 0rem 1rem #ffffff;
+    background-color: var(--lightGrey2-gs-neumorphic-login-signup);
+    z-index: 3;
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-neumorphic-login.gs-open{
+    transform: translateY(-80%);
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-neumorphic-signup-login-header{
+    color: var(--header-colors-gs-neumorphic-login-signup);
+    font-size: var(--header-closed-size-gs-neumorphic-login-signup);
+    font-weight: bold;
+    transition: var(--card-open-close-tansition-time-gs-neumorphic-login-signup) ease-in-out;
+    padding: 10px;
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-neumorphic-signup-login-header.gs-open{
+    transform: scale(var(--header-scale-open-gs-neumorphic-login-signup));
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-neumorphic-form-container{
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: var(--card-open-close-tansition-time-gs-neumorphic-login-signup) ease-in-out;
+    overflow: auto;
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-form-open .gs-neumorphic-form-container{
+    visibility: visible;
+    opacity: 1;
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-neumorphic-form-container .gs-neumorphic-input{
+    width: calc(100% - 50px);
+    border: none;
+    border-radius: var(--form-input-border-radius-gs-neumorphic-login-signup);
+    padding: var(--form-input-padding-gs-neumorphic-login-signup);
+    box-shadow: inset 0.1rem 0.1rem 0.3rem var(--lightGrey-gs-neumorphic-login-signup),
+    inset -0.1rem -0.1rem 0.3rem white;
+    background: none;
+    color: var(--form-input-font-color--gs-neumorphic-login-signup);
+    margin: var(--form-input-margin-gs-neumorphic-login-signup) auto;
+    font-size: var(--form-input-font-size-gs-neumorphic-login-signup);
+    max-width: var(--form-input-max-width-gs-neumorphic-login-signup);
+    display: block;
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-neumorphic-form-container .gs-neumorphic-input::placeholder{
+    color: var(--form-input-font-color--gs-neumorphic-login-signup);
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-neumorphic-form-container .gs-neumorphic-input:focus{
+    outline: none;
+    box-shadow: 0.3rem 0.3rem 0.6rem var(--lightGrey-gs-neumorphic-login-signup),
+    -0.2rem -0.2rem 0.5rem white;
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-neumorphic-form-container::-webkit-scrollbar {
+    width: 5px;
+    -webkit-appearance: none;
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-neumorphic-form-container::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-neumorphic-form-container::-webkit-scrollbar-thumb {
+    background-color: rgba(108, 121, 119, 0.44);
+    border: 1px solid #fff;
+    border-radius: 1rem; 
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-neumorphic-form-container .gs-neumorphic-button{
+    width: max-content;
+    padding: var(--form-input-padding-gs-neumorphic-login-signup) calc(var(--form-input-padding-gs-neumorphic-login-signup) * 2.5);
+    margin-top: var(--form-input-margin-gs-neumorphic-login-signup);
+    margin-bottom: var(--form-input-margin-gs-neumorphic-login-signup);
+    border: none;
+    border-radius: var(--form-input-border-radius-gs-neumorphic-login-signup);
+    box-shadow: 0.3rem 0.3rem 0.6rem var(--lightGrey-gs-neumorphic-login-signup),
+    -0.2rem -0.2rem 0.5rem white;
+    cursor: pointer;
+    transition: var(--card-open-close-tansition-time-gs-neumorphic-login-signup) ease;
+    color: var(--form-input-font-color--gs-neumorphic-login-signup);
+    background-color: var(--lightGrey2-gs-neumorphic-login-signup);
+    font-size: var(--form-input-font-size-gs-neumorphic-login-signup);
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-neumorphic-form-container .gs-neumorphic-button:hover{
+    color: var(--header-colors-gs-neumorphic-login-signup);
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-neumorphic-form-container .gs-neumorphic-button:active{
+    box-shadow: inset 0.2rem 0.2rem 0.5rem var(--lightGrey-gs-neumorphic-login-signup),
+    inset -0.2rem -0.2rem 0.5rem white;
+}
+
+.gs-neumorphic-main-card-container .gs-neumorphic-main-card .gs-neumorphic-form-container .gs-neumorphic-button:focus{
+    outline: none;
+    color: var(--header-colors-gs-neumorphic-login-signup);
+}
+
+
+
+
+.login-button{
+    width: max-content;
+    padding: var(--form-input-padding-gs-neumorphic-login-signup) calc(var(--form-input-padding-gs-neumorphic-login-signup) * 2.5);
+    margin-top: var(--form-input-margin-gs-neumorphic-login-signup);
+    margin-bottom: var(--form-input-margin-gs-neumorphic-login-signup);
+    border: none;
+    border-radius: var(--form-input-border-radius-gs-neumorphic-login-signup);
+    box-shadow: 0.3rem 0.3rem 0.6rem var(--lightGrey-gs-neumorphic-login-signup),
+    -0.2rem -0.2rem 0.5rem white;
+    cursor: pointer;
+    transition: var(--card-open-close-tansition-time-gs-neumorphic-login-signup) ease;
+    color: var(--form-input-font-color--gs-neumorphic-login-signup);
+    background-color: var(--lightGrey2-gs-neumorphic-login-signup);
+    font-size: var(--form-input-font-size-gs-neumorphic-login-signup);
+    text-decoration: none; 
+}
+
+.login-button:hover{
+    color: var(--header-colors-gs-neumorphic-login-signup);
+}
+
+.login-button:active{
+    box-shadow: inset 0.2rem 0.2rem 0.5rem var(--lightGrey-gs-neumorphic-login-signup),
+    inset -0.2rem -0.2rem 0.5rem white;
+}
+
+.login-button:focus{
+    outline: none;
+    color: var(--header-colors-gs-neumorphic-login-signup);
+}
+
+.profile-image{
+    position: relative;
+    max-width: 205px;
+    margin: 25px auto;
+}
+
+.avatar-edit {
+    position: absolute;
+    right: 12px;
+    z-index: 1;
+    top: 10px;
+}
+.avatar-edit input {
+        display: none;
+}
+.avatar-edit label {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    z-index: 1;
+    margin-bottom: 0;
+    border-radius: 100%;
+    background: #d5dcee;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    font-weight: normal;
+    transition: all .2s ease-in-out;
+}
+.avatar-edit:hover {
+    border-color: #000000;
+}
+.avatar-edit:after {
+    content: "\00270e";
+    font-family: 'FontAwesome';
+    font-size: 24;
+    /* z-index: -1; */
+    transform: scaleX(-1);
+    color: #323232;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+}
+
+.avatar-preview {
+    width: 192px;
+    height: 192px;
+    position: relative;
+    border-radius: 100%;
+    border: 6px solid #d5dcee;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.avatar-preview div {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
